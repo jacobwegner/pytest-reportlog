@@ -103,8 +103,9 @@ class ReportLogPlugin:
                     "Captured log teardown",
                 ]
             ]
-
-        self._write_json_data(data)
+        # TODO: Square this with https://github.com/pytest-dev/pytest-reportlog/pull/41
+        else:
+            self._write_json_data(data)
 
     def pytest_warning_recorded(self, warning_message, when, nodeid, location):
         data = {
